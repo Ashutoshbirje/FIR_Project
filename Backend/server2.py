@@ -29,4 +29,5 @@ def predict(data: InputData):
     except Exception as e:
         return {"error": str(e)}
 
-# Run with: uvicorn server:app --reload
+# Run
+# uvicorn server2:app --reload

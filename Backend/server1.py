@@ -2,14 +2,10 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import google.generativeai as genai
-from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
-load_dotenv()
-
 # Configure Gemini API
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key="AIzaSyAguHfOIdjwp95TFzVtjnQf9wmbK7DaFhc")
 model = genai.GenerativeModel("gemini-2.5-pro-exp-03-25")
 
 app = FastAPI()
@@ -40,9 +36,9 @@ async def predict(data: InputData):
         prompt_text = BASE_PROMPT.format(data.input)
         response = model.generate_content(prompt_text)
         result = response.text.strip()
-        return {result}
+        return {"output": result}
     except Exception as e:
-        return {f"Error: {str(e)}"}
+        return {"output": f"Error: {str(e)}"}
 
 # Run
 # uvicorn server1:app --reload

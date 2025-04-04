@@ -8,6 +8,7 @@ import img4 from "../../Images/4.png";
 import img5 from "../../Images/5.png";
 
 const images = [img1, img2, img3, img4, img5];
+
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -30,6 +31,14 @@ const HomePage = () => {
             alt={`slide-${currentIndex}`}
             className="slide-image"
           />
+        </div>
+        <div className="Home2">
+          <div className="buttons-container">
+            <button className="custom-button">Online Complaint</button>
+            <button className="custom-button">Contact</button>
+            <button className="custom-button">Police Station</button>
+            <button className="custom-button">On Touch</button>
+          </div>
         </div>
       </nav>
     </div>

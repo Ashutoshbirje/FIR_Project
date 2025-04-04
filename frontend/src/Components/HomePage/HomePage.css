@@ -1,9 +1,11 @@
 .Home {
     padding: 0px 20px;
     /* height: 100px; */
+    width: 100vw;
     z-index: 1000; /* Ensures it stays above other elements */
     /* background-color: #180056; Background color */
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); Optional shadow */
+    margin-bottom: 100px;
 }
   
   /* Add some padding to your main content to prevent overlap with the navbar */
@@ -18,4 +20,39 @@
   .Home1 > img {
     width: 100%;
     height: 60%;
+    padding: auto;
   }
+
+  
+.Home2 {
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -70px; /* Adjust to overlap slightly */
+
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+}
+
+.custom-button {
+  background-color: #190047;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  height: 100px;
+  width: 300px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #3a0ca3;
+}

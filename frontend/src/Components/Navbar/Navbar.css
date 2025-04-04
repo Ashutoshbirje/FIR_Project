@@ -1,6 +1,6 @@
 .navbar {
     padding: 10px 20px;
-    /* width: 100%; Takes full width */
+    width: 100vw;
     height: 100px;
     z-index: 1000; /* Ensures it stays above other elements */
     background-color: #180056; /* Background color */

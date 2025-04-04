@@ -1,5 +1,24 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100vw; /* or use 100% */
+  min-height: 100vh;
+  background-color: #EEF6FD;
+}
+
 .App {
   text-align: center;
+  padding-top: 110px;
 }
 
 .App-logo {

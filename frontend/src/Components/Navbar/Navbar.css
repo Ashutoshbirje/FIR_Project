@@ -1,0 +1,315 @@
+.navbar {
+    padding: 10px 20px;
+    /* width: 100%; Takes full width */
+    height: 100px;
+    z-index: 1000; /* Ensures it stays above other elements */
+    background-color: #180056; /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+  
+  /* Add some padding to your main content to prevent overlap with the navbar */
+  .navbar1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 105px;
+    /* margin-top: 10px; */
+  }
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .logo img {
+    height: 70px;
+    margin-right: 10px;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .navbar-item {
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  .navbar-item a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+  }
+  
+  .navbar-item a:hover {
+    color: #00A6ED; /* Light Blue */
+  }
+  
+/* Dropdown menu container */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.dropdown-menu li {
+  margin-bottom: 10px;
+  color: #857b7b; /* Light shade of black */
+  font-size: 14px;
+}
+
+.dropdown-menu li:hover {
+  color: #6f6c6c; /* Darker on hover */
+  cursor: pointer;
+}
+
+  
+  .navbar-item:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar-right {
+    display: flex;
+  }
+  
+  .login-btn,
+  .signup-btn {
+    background-color: transparent;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+    font-size: 15px;
+  }
+  
+  .signup-btn {
+    color: #180056;
+    background-color: #CEC816;
+  }
+  
+  
+  .login-btn:hover{
+    color: #180056;
+    background-color: #CEC816;
+  }
+
+  /* General Hover Effect for Login and Signup Buttons */
+.signup-btn:hover {
+  color: white;
+  background-color: #919b03; /* Darker shade on hover */
+}
+
+  /* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal is on top */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px; /* Adjustable width */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Positioning for the close button */
+}
+
+/* Close Button Styles */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Input Styles */
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button Styles for Modal */
+.modal button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Social Login Button Styles */
+.modal .social-login-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.modal .social-login-btn button {
+  padding: 10px;
+  width: 45%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+.hero-section {
+  padding: 40px 40px 0px 40px;
+  background-color: #0a1931;
+  color: white;
+  height: 100vh;
+}
+
+.hero-section1 {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin: 0px 85px;
+  background-color: #0a1931;
+  color: white;
+}
+
+.hero-content {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.hero-part_A {
+  color: white;
+  font-size: 15px;
+  width: 100%;
+}
+
+.hero-part_A h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #00a6ed;
+}
+
+.hero-part_B {
+  color: white;
+  padding: 0;
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+}
+
+.hero-part_B > p{
+  padding-right: 100px;
+  text-align:left;
+}
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.get-started-btn,
+.get-appoint-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.get-started-btn {
+  background-color: white;
+  color: #0a1931;
+}
+
+.get-started-btn:hover,
+.get-appoint-btn:hover {
+  opacity: 0.8;
+}
+.hero-image img {
+  border-radius: 5px;
+  height: 400px; 
+  width: 600px;
+}
+
+.noticeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; /* Makes the icon circular */
+  background-color:  #00A6ED;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.userIcon i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.userIcon:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.Inner h1,
+.Inner h4,
+.no-margin {
+  margin: 0;
+  padding: 0; /* Optional, if padding is added by default theme */
+}
+
+.Inner h4{
+  color: #CEC816;
+}

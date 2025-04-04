@@ -1,0 +1,21 @@
+.Home {
+    padding: 0px 20px;
+    /* height: 100px; */
+    z-index: 1000; /* Ensures it stays above other elements */
+    /* background-color: #180056; Background color */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); Optional shadow */
+}
+  
+  /* Add some padding to your main content to prevent overlap with the navbar */
+  .Home1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 105px;
+    margin-top: 10px; 
+  }
+
+  .Home1 > img {
+    width: 100%;
+    height: 60%;
+  }

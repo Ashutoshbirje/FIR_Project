@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Instruction from "./Components/Instruction/Instruction"; 
+import HomePage from "./Components/HomePage/HomePage";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import Footer from "./Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-// import Header from "./Components/Header";
-// import ButtonsSection from "./Components/ButtonsSection";
 import "./App.css";
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
     <div class="container">
       <Instruction />
       <Navbar />
-      {/* <Header /> */}
-      {/* <ButtonsSection /> */}
+      <HomePage />
+      <Dashboard />
+      <Footer />
     </div>
   );
 }

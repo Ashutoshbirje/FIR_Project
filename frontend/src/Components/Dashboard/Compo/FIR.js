@@ -1,14 +1,37 @@
 import React, { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./FIR.css";
 
 const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
   const [localData, setLocalData] = useState(formData || {}); // initialize with formData
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post("http://localhost:8000/fir", { input });
+      setOutput(response.data.output);
+    } catch (error) {
+      console.error("Error fetching prediction:", error);
+      setOutput("Error occurred!");
+    }
+  };
+
+  useEffect(() => {
+    if (output) {
+      console.log("Generated Output:", output);
+      const updatedData = { ...localData, firDraft: output };
+      setLocalData(updatedData);
+      setFormData(updatedData);
+    }
+  }, [output]);
 
   useEffect(() => {
     console.log("Local Data:",formData);
+    setInput(formData.incidentDescription);
     setLocalData(formData)
-  }, [formData]);
+  }, [formData]); 
 
   useEffect(() => {
     console.log("Local Data:",localData);
@@ -186,7 +209,8 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
             </div>
 
             <div className="text-center">
-              <button type="submit" className="submit-btn">Next</button>
+              <button onClick={handleSubmit}>Submit</button>
+              {/* <button type="submit" className="submit-btn">Next</button> */}
             </div>
           </form>
         </>

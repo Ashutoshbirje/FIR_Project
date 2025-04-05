@@ -32,7 +32,7 @@ Scenario:
 Provide only a list of relevant IPC sections along with their short and simple descriptions. Keep it concise and avoid any extra explanation or punctuation. Output must be in the form of Section name : section Discription
 """
 
-@app.post("/predict")
+@app.post("/fir")
 async def predict(data: InputData):
     try:
         prompt_text = BASE_PROMPT.format(data.input)

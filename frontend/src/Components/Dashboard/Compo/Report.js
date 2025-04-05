@@ -8,19 +8,14 @@ const FIRReport = () => {
 
     const [data, setFormData] = useState({});
   
-
     useEffect(() => {
       if (location.state && location.state.localData) {
         setFormData(location.state.localData);
         console.log("Received data in Report:", location.state.localData);
       }
     }, [location]);
+
   const navigate = useNavigate(); 
-  const predictedSections = [
-    { section: "IPC 302", offense: "Murder", punishment: "Death or life imprisonment + fine" },
-    { section: "IPC 376", offense: "Rape", punishment: "10 years to life imprisonment + fine" },
-    { section: "IPC 420", offense: "Cheating", punishment: "Up to 7 years + fine" }
-  ];
 
   const handleNext1 = () => {
     // navigate to FIRReport component with formData
@@ -61,9 +56,7 @@ const FIRReport = () => {
     doc.text(`Address: ${data.address}`, 20, 210);
 
     doc.text("Legal Sections Applied", 20, 220);
-    predictedSections.forEach((sec, i) => {
-      doc.text(`${sec.section}: ${sec.offense} - ${sec.punishment}`, 20, 230 + i * 10);
-    });
+    doc.text(`${data.firDraft}`, 20, 210);
 
     doc.save("FIR_Report.pdf");
   };
@@ -95,13 +88,7 @@ const FIRReport = () => {
       <p>Address: {data.address}</p>
 
       <h3>Legal Sections Applied</h3>
-      <ul>
-        {predictedSections.map((sec, i) => (
-          <li key={i}>
-            <strong>{sec.section}</strong>: {sec.offense} - {sec.punishment}
-          </li>
-        ))}
-      </ul>
+      <p>{data.firDraft}</p>
 
       <h3>Signature and Submission</h3>
       <p>Name and Signature of Investigating Officer</p>

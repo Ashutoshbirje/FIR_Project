@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [showReport, setShowReport] = useState(false);
   const [formData, setFormData] = useState({
     firNumber: "",
-    date: "",
+    date: "", 
     time: "",
     policeStation: "",
     district: "",

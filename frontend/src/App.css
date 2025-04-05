@@ -16,6 +16,13 @@ body, html {
   background-color: #EEF6FD;
 }
 
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Make sure it stays above other content */
+  background-color: white; /* Ensure background covers content behind */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds subtle shadow */
+}
 
 .App {
   text-align: center;

@@ -3,7 +3,7 @@ import "./Navbar.css";
 import logo from "../../Images/Logo1.jpg"; 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-const Navbar = ({ user, setUser }) => {  
+const Navbar = () => {  
 
   return (
     <div>
@@ -27,18 +27,11 @@ const Navbar = ({ user, setUser }) => {
           </div>
 
           <div className="navbar-right">
-            {user ? (
-              <div className="noticeContainer">
-                <div className="userIcon">
-                  <i className="fas fa-user"></i>
-                </div>
-              </div>
-            ) : (
-              <>
-                <button className="login-btn">Login</button>
-                <button className="signup-btn">Sign Up</button>
-              </>
-            )}
+    
+              <button className="login-btn">Login</button>
+      
+              <button className="signup-btn">Sign Up</button>
+        
           </div>
         </div>
       </nav>

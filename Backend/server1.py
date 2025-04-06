@@ -40,8 +40,8 @@ async def predict(data: InputData):
         result = response.text.strip()
         return {"output": result}
     except Exception as e:
-        return {"output": f"Enter Vaild Data"}
-        # return {"output": f"Error: {str(e)}"}
+        # return {"output": f"Enter Vaild Data"}
+        return {"output": f"Error: {str(e)}"}
         
 
 # Run

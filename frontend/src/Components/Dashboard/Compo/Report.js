@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import jsPDF from "jspdf";
+import "./Report.css";
 
 const FIRReport = () => {
     const location = useLocation();
@@ -63,7 +64,7 @@ const FIRReport = () => {
 
   return (
     <div className="fir-report">
-      <h2>First Information Report</h2>
+      <h2 className="fir-report-title">First Information Report</h2>
       <p><strong>FIR Number:</strong> {data.firNumber}</p>
       <p><strong>Date:</strong> {data.date} | <strong>Time:</strong> {data.time}</p>
 
@@ -96,10 +97,10 @@ const FIRReport = () => {
       <p>Date of submission to Magistrate</p>
       <p>Seal of the Police Station</p>
       
-      <div>
+      <div className="text-center2">
         <button className="submit-btn" onClick={handleNext1}>Back</button>
         <button className="submit-btn" onClick={handleNext1}>Submit</button>
-        <button className="download-btn" onClick={generatePDF}>Download PDF</button>
+        <button className="submit-btn" onClick={generatePDF}>Download</button>
       </div>
 
     </div>

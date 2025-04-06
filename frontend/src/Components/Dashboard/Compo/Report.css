@@ -1,135 +1,4 @@
-/* FIR.css */
 
-.fir-container {
-    padding: 1.5rem;
-    width: 1100px;
-    margin: auto;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .Close{
-    background-color: #1d4ed8;
-    width: 100%;
-    position: relative;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 20px;
-    color: #ff4d4d;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .close-btn:hover {
-    color: #cc0000;
-  }
-  
-  
-  .fir-title {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    color: #1d4ed8;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .form-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-  
-  .input-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-label-desktop {
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-    color: #374151;
-  }
-  
-  .input-field-desktop,
-  .textarea-field {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    outline: none;
-    transition: border 0.2s, box-shadow 0.2s;
-  }
-  
-  .input-field-desktop:focus,
-  .textarea-field:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
-  }
-  
-  .textarea-field {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  .section-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2563eb;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .submit-btn {
-    margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 0.375rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .submit-btn:hover {
-    background-color: #1e40af;
-  }
-  
-  .Detail{
-    margin-top: 10px;;
-  }
-
-  /* Mobile view adjustments */
-  @media screen and (max-width: 600px) {
-    .input-label-desktop {
-      font-size: 0.9rem;
-      color: #333;
-    }
-  
-    .input-field-desktop {
-      font-size: 0.95rem;
-      padding: 0.6rem;
-    }
-  
-    .form-section {
-      grid-template-columns: 1fr;
-    }
-    .fir-container {
-        padding: 1.5rem;
-        width: 900px;
-        margin: auto;
-    }
-      
-  }
-
-/* //////////////////////// */
 
 
 /* ------------------ Additional styling for FIR Report (below) ------------------ */
@@ -180,12 +49,10 @@
     font-weight: 600;
   }
   
-  .text-center1 {
-    text-align: center;
-    margin-top: 2rem;
+  .text-center2 {
     display: flex;
-    justify-content: space-between;
-    margin: 2rem 8rem;
+    justify-content:space-between;
+    /* margin: 2rem 8rem; */
   }
   
   .submit-btn {

@@ -55,6 +55,16 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
     setShowReport(false);
   };
 
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 30000); // 30 seconds
+
+    return () => clearTimeout(timer); // cleanup
+  }, []);
+
   const handleNext1 = () => {
     // navigate to FIRReport component with formData
     // console.log(formData);
@@ -109,7 +119,15 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
 
           <div className="text-center1">
             <button className="submit-btn" onClick={handleEdit}>Edit FIR</button>
-            <button className="submit-btn" onClick={handleNext1}>Next</button>
+            {showButton ? (
+        <button className="submit-btn" onClick={handleNext1}>
+          Next
+        </button>
+            ) : (
+        <button className="submit-btn">
+        Loading ...
+        </button>
+            )}
           </div>
         </div>
       ) : (
@@ -209,8 +227,7 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
             </div>
 
             <div className="text-center">
-              <button onClick={handleSubmit}>Submit</button>
-              {/* <button type="submit" className="submit-btn">Next</button> */}
+              <button type="submit" className="submit-btn" onClick={handleSubmit}>Submit</button>
             </div>
           </form>
         </>

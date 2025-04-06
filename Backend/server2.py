@@ -12,7 +12,7 @@ app = FastAPI()
 # Enable CORS to allow frontend to access backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins, change to frontend URL if needed
+    allow_origins=["http://localhost:3000"],  # Allow all origins, change to frontend URL if needed
     allow_credentials=True,
     allow_methods=["*"],  # Allow all methods
     allow_headers=["*"],  # Allow all headers
@@ -21,7 +21,7 @@ app.add_middleware(
 class InputData(BaseModel):
     input: str
 
-@app.post("/predict")
+@app.post("/fir")
 def predict(data: InputData):
     try:
         prediction = model.predict([data.input])  # Ensure correct preprocessing

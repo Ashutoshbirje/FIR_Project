@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Instruction from "./Components/Instruction/Instruction"; 
 import HomePage from "./Components/HomePage/HomePage";
 import Advertisement from "./Components/Advertisement/Advertisement";
-// import Dashboard from "./Components/Dashboard/Dashboard";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import Footer from "./Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
@@ -17,7 +17,7 @@ function App() {
       </div>
       <HomePage />
       <Advertisement />
-      {/* <Dashboard /> */}
+      <Dashboard />
       <Footer />
     </div>
   );

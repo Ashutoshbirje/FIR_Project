@@ -33,7 +33,7 @@ const Navbar = () => {
             </ul>
 
             <div className="hamburger" onClick={toggleMenu}>
-              <i className="icon fas fa-bars"></i>
+              <i className="icon1 fas fa-bars"></i>
             </div>
 
             <button className="logout-btn">Log Out</button>

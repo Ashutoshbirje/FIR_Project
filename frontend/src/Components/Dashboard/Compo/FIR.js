@@ -4,7 +4,7 @@ import axios from "axios";
 import "./FIR.css";
 
 const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
-  const [localData, setLocalData] = useState(formData || {}); // initialize with formData
+  const [localData, setLocalData] = useState(formData || {}); 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
@@ -66,8 +66,6 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
   }, []);
 
   const handleNext1 = () => {
-    // navigate to FIRReport component with formData
-    // console.log(formData);
       navigate("/report", {
         state: {
           localData: formData // formData should be the full form object

@@ -30,11 +30,11 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           </div>
           <div className="navbar-right">
             <ul className="navbar-menu">
-              <li className="navbar-item">Home</li>
-              <li className="navbar-item">Police Stations</li>
-              <li className="navbar-item">FIR Report</li>
-              <li className="navbar-item">Section</li>
-              <li className="navbar-item">Contact</li>
+              <li className="navbar-item1">Home</li>
+              <li className="navbar-item1">Police Stations</li>
+              <li className="navbar-item1">FIR Report</li>
+              <li className="navbar-item1">Section</li>
+              <li className="navbar-item1">Contact</li>
             </ul>
 
             <div className="hamburger" onClick={toggleMenu}>

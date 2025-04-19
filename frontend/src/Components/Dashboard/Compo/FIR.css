@@ -44,7 +44,7 @@
 }
 
 .input-label-desktop {
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 
@@ -68,8 +68,9 @@
 
 /* Section headings */
 .section-heading {
-  font-size: 1.3rem;
-  margin: 20px 0 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 20px 0 20px;
 }
 
 /* Buttons */
@@ -98,14 +99,14 @@
   background: #f4f4f4;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin-top: 30px;
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+  /* margin-top: 30px; */
 }
 
 .fir-report-title {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .fir-report p {

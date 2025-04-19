@@ -90,9 +90,10 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
       {showReport ? (
         <div className="Report">
           <div className="fir-report">
-            <h2 className="fir-report-title">First Information Report</h2>
+            <h3 className="fir-report-title">First Information Report</h3>
             <p><strong>FIR Number:</strong> {formData.firNumber}</p>
-            <p><strong>Date:</strong> {formData.date} | <strong>Time:</strong> {formData.time}</p>
+            <p><strong>Date:</strong> {formData.date}</p>
+            <p><strong>Time:</strong> {formData.time}</p>
 
             <h3>Police Station Details</h3>
             <p><strong>Police Station:</strong> {formData.policeStation}</p>
@@ -111,7 +112,8 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
             <p><strong>Name:</strong> {formData.complainantName}</p>
             <p><strong>Father/Husband Name:</strong> {formData.guardianName}</p>
             <p><strong>Age:</strong> {formData.age} | <strong>Gender:</strong> {formData.gender}</p>
-            <p><strong>Contact:</strong> {formData.contact} | <strong>Email:</strong> {formData.email}</p>
+            <p><strong>Contact:</strong> {formData.contact}</p>
+            <p><strong>Email:</strong> {formData.email}</p>
             <p><strong>Address:</strong> {formData.address}</p>
           </div>
 

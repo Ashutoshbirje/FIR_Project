@@ -114,7 +114,6 @@
   top: 70px;
   right: auto;
   background-color: #001f3f;
-  /* width: 200px; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 999;
   transition: transform 0.3s ease-in-out;
@@ -127,15 +126,18 @@
 .hamburger-menu {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: auto;
+}
+
+.navbar-item{
+  width: 100%;
 }
 
 .hamburger-menu .navbar-item {
-  padding: 15px 20px;
+  padding: 15px 0px;
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -146,7 +148,8 @@
 /* Responsive Media Queries */
 @media (max-width: 768px) {
   .navbar {
-    height: 60px;
+    height: 55px;
+    padding: 8px 10px;
   }
 
   .navbar1 {
@@ -222,7 +225,6 @@
   }
 
   .navbar-item {
-    padding: 12px 0;
     border-top: 1px solid #555;
     color: white;
   }

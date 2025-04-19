@@ -32,8 +32,8 @@
 }
 
 .login-left img {
-  width: 140px;
-  height: 120px;
+  width: 180px;
+  height: 140px;
   margin: 0 auto 30px;
 }
 
@@ -137,7 +137,14 @@
   }
 
   .login-left img {
-    width: 100px;
+    width: 160px;
     height: auto;
+  }
+  .login-left h2 {
+    font-size: 18px;
+  }
+  
+  .login-left h3 {
+    font-size: 16px;
   }
 }

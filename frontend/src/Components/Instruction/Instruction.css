@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
   font-family: Arial, sans-serif;
   font-size: 14px;
   width: 100%;
@@ -111,8 +111,8 @@
     flex-direction: column;
     align-items: flex-start;
     font-size: 13px;
-    padding: 10px;
-    height: 40px;
+    padding: 8px;
+    height: 30px;
   }
 
   .topbar-left {
@@ -142,8 +142,8 @@
 @media (max-width: 480px) {
   .topbar {
     font-size: 12px;
-    padding: 8px;
-    height: 30px;
+    padding: 5px;
+    height: 25px;
   }
 
   .website {

@@ -85,7 +85,7 @@
   .Home2 {
     width: 80%;
     /* position: absolute; */
-    bottom: -40px; /* Adjust to overlap slightly */
+    bottom: -20px; /* Adjust to overlap slightly */
     padding: auto;
   }
   .buttons-container {

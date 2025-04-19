@@ -64,38 +64,39 @@ const FIRReport = () => {
 
   return (
     <div className="fir-report">
-      <h2 className="fir-report-title">First Information Report</h2>
+      <h3 className="fir-report-title">First Information Report</h3>
       <p><strong>FIR Number:</strong> {data.firNumber}</p>
       <p><strong>Date:</strong> {data.date} | <strong>Time:</strong> {data.time}</p>
 
       <h3>Police Station Details</h3>
-      <p>Police Station: {data.policeStation}</p>
-      <p>District: {data.district}</p>
-      <p>State: {data.state}</p>
-      <p>Officer Name: {data.officerName}</p>
+      <p><strong>Police Station:</strong> {data.policeStation}</p>
+      <p><strong>District:</strong> {data.district}</p>
+      <p><strong>State:</strong> {data.state}</p>
+      <p><strong>Officer Name:</strong> {data.officerName}</p>
 
       <h3>Complaint Details</h3>
-      <p>Mode of Receiving Info: {data.receivedMode}</p>
-      <p>Offense Type: {data.offenseType}</p>
-      <p>Offense Date & Time: {data.offenseDateTime}</p>
-      <p>Place of Occurrence: {data.occurrencePlace}</p>
-      <p>Incident Description: {data.incidentDescription}</p>
+      <p><strong>Mode of Receiving Info:</strong> {data.receivedMode}</p>
+      <p><strong>Offense Type:</strong> {data.offenseType}</p>
+      <p><strong>Offense Date & Time:</strong> {data.offenseDateTime}</p>
+      <p><strong>Place of Occurrence:</strong> {data.occurrencePlace}</p>
+      <p><strong>Incident Description:</strong> {data.incidentDescription}</p>
 
       <h3>Complainant Details</h3>
-      <p>Name: {data.complainantName}</p>
-      <p>Father/Husband Name: {data.guardianName}</p>
-      <p>Age: {data.age} | Gender: {data.gender}</p>
-      <p>Contact: {data.contact} | Email: {data.email}</p>
-      <p>Address: {data.address}</p>
+      <p><strong>Name:</strong> {data.complainantName}</p>
+      <p><strong>Father/Husband Name:</strong> {data.guardianName}</p>
+      <p><strong>Age:</strong> {data.age} <strong> Gender:</strong> {data.gender}</p>
+      <p><strong>Contact:</strong> {data.contact} </p>
+      <p><strong> Email:</strong>  {data.email}</p>
+      <p><strong>Address:</strong> {data.address}</p>
 
       <h3>Legal Sections Applied</h3>
       <p>{data.firDraft}</p>
 
       <h3>Signature and Submission</h3>
-      <p>Name and Signature of Investigating Officer</p>
-      <p>Rank and Badge No.</p>
-      <p>Date of submission to Magistrate</p>
-      <p>Seal of the Police Station</p>
+      <p><strong>Name and Signature of Investigating Officer</strong></p>
+      <p><strong>Rank and Badge No.</strong></p>
+      <p><strong>Date of submission to Magistrate</strong></p>
+      <p><strong>Seal of the Police Station</strong></p>
       
       <div className="text-center2">
         <button className="submit-btn" onClick={handleNext1}>Back</button>

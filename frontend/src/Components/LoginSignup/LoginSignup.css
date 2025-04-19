@@ -1,0 +1,143 @@
+.login-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 900px;
+  min-height: 600px; 
+  margin: 50px auto;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: #f8fdff;
+  font-family: 'Arial', sans-serif;
+}
+
+.login-left,
+.login-right {
+  flex: 1 1 50%;
+  box-sizing: border-box;
+  min-width: 300px;
+}
+
+/* Left side styling */
+.login-left {
+  background-color: #180056;
+  color: white;
+  padding: 60px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 2px solid #00b2ff;
+}
+
+.login-left img {
+  width: 140px;
+  height: 120px;
+  margin: 0 auto 30px;
+}
+
+.login-left h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-left h3 {
+  font-size: 18px;
+  color: #ffe600;
+  font-weight: bold;
+}
+
+/* Right side styling */
+.login-right {
+  background-color: #fff;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: 2px solid black;
+  border-left: none;
+}
+
+.login-right p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.login-right input {
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 12px 24px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-btn {
+  background-color: #21004b;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.signup-btn {
+  background-color: #f2e603;
+  color: black;
+}
+
+.login-btn:hover {
+  background-color: #32006b;
+}
+
+.signup-btn:hover {
+  background-color: #e8db00;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    border-radius: 20px;
+    height: 100%; 
+  }
+
+  .login-left {
+    border-right: none;
+    border-bottom: 2px solid #00b2ff;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .login-right {
+    border-left: none;
+    border-radius: 0 0 20px 20px;
+    border-top: none;
+  }
+
+  .login-left,
+  .login-right {
+    padding: 40px 20px;
+  }
+
+  .login-left img {
+    width: 100px;
+    height: auto;
+  }
+}

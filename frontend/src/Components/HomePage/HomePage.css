@@ -1,10 +1,7 @@
 .Home {
     padding: 0px 20px;
-    /* height: 100px; */
     width: 100vw;
-    z-index: 1000; /* Ensures it stays above other elements */
-    /* background-color: #180056; Background color */
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); Optional shadow */
+    z-index: 1000;
     margin-bottom: 100px;
 }
   
@@ -55,4 +52,40 @@
 
 .custom-button:hover {
   background-color: #3a0ca3;
+}
+
+@media (max-width: 768px) {
+  .Home {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Home1 > img {
+    width: 100vw;
+    height: 250px;
+    padding: auto;
+  }
+  .Home2 {
+    width: 80%;
+    /* position: absolute; */
+    bottom: -40px; /* Adjust to overlap slightly */
+    padding: auto;
+  }
+  .buttons-container {
+   flex-direction: column;
+   gap: 10px;
+  }
+
+  .custom-button {
+    padding: 8px 12px;
+    height: 60px;
+    width: 300px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
 }

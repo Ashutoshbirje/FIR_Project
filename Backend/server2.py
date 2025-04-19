@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pickle
 
-# Load the trained model
 with open("ipc_model.pkl", "rb") as file:
     model = pickle.load(file)
 

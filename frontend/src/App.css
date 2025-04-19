@@ -1,65 +1,49 @@
-
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   width: 100%;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Container Layout */
 .container {
-  width: 100vw; /* or use 100% */
-  min-height: 100vh;
-  background-color: #EEF6FD;
-}
-
-.sticky-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999; /* Make sure it stays above other content */
-  background-color: white; /* Ensure background covers content behind */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds subtle shadow */
-}
-
-.App {
-  text-align: center;
-  padding-top: 110px;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #EEF6FD;
+  /* background-color: red; */
 }
 
-.App-link {
-  color: #61dafb;
+/* Sticky Navbar */
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Utility Classes (Mobile First) */
+
+@media (max-width: 768px) {
+  .sticky-navbar {
+    box-shadow: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 480px) {
+  .sticky-navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }

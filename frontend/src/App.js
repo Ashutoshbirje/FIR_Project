@@ -19,7 +19,8 @@ function App() {
           <>
             <Instruction />
             <div className="sticky-navbar">
-              <Navbar />
+              {/* Pass login state and setter to Navbar */}
+              <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             </div>
             <HomePage />
             <Advertisement />

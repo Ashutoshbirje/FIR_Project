@@ -3,8 +3,13 @@ import "./Navbar.css";
 import logo from "../../Images/Logo1.jpg";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+ 
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Update login state on logout
+  };
+
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -35,8 +40,8 @@ const Navbar = () => {
             <div className="hamburger" onClick={toggleMenu}>
               <i className="icon1 fas fa-bars"></i>
             </div>
-
-            <button className="logout-btn">Log Out</button>
+            {isLoggedIn && (
+            <button className="logout-btn" onClick={handleLogout}>Log Out</button>)}
           </div>
         </div>
       </nav>

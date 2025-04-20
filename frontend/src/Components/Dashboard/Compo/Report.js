@@ -17,12 +17,7 @@ const FIRReport = () => {
 
   const handleNext1 = () => {
     console.log("At the report", data);
-    navigate("/fir", {
-      state: {
-        showReport: true,
-        formData: data
-      }
-    });
+    navigate("/fir");
   };
 
   const generatePDF = () => {
@@ -118,6 +113,32 @@ const FIRReport = () => {
     doc.save("FIR_Report.pdf");
   };
   
+  const handleSubmit = async () => {
+    try {
+      const token = localStorage.getItem("token"); // or however you store the JWT
+      const response = await fetch("http://localhost:5000/api/report", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // required if your route uses `verifyToken`
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        alert("FIR Submitted Successfully!");
+        console.log("Saved FIR:", result);
+        navigate("/fir"); // or wherever you want to redirect
+      } else {
+        alert(`Submission failed: ${result.error}`);
+      }
+    } catch (error) {
+      console.error("Error submitting FIR:", error);
+      alert("An error occurred while submitting the FIR.");
+    }
+  };
+  
   return (
     <div className="fir-report">
       <h3 className="fir-report-title">First Information Report</h3>
@@ -156,7 +177,7 @@ const FIRReport = () => {
 
       <div className="text-center2">
         <button className="submit-btn" onClick={handleNext1}>Back</button>
-        <button className="submit-btn" onClick={handleNext1}>Submit</button>
+        <button className="submit-btn" onClick={handleSubmit}>Submit</button>
         <button className="submit-btn" onClick={generatePDF}>Download</button>
       </div>
     </div>

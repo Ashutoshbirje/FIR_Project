@@ -4,7 +4,6 @@ import axios from "axios";
 import "./FIR.css";
 
 const FIR = () => {
-
     const [showReport, setShowReport] = useState(false);
     const [formData, setFormData] = useState({
       firNumber: "",
@@ -25,9 +24,10 @@ const FIR = () => {
       gender: "",
       contact: "",
       email: "",
-      address: ""
+      address: "",
+      firDraft: ""
     });
-  
+
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
@@ -52,7 +52,6 @@ const FIR = () => {
   useEffect(() => {
     setInput(formData.incidentDescription);
   }, [formData]); 
-
 
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -88,10 +87,8 @@ const FIR = () => {
           localData: formData // formData should be the full form object
         }
       });
-      
   };
 
-  
   return (
     <div className="fir-container">
       <div className="Close">

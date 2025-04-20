@@ -3,8 +3,31 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./FIR.css";
 
-const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
-  const [localData, setLocalData] = useState(formData || {}); 
+const FIR = () => {
+
+    const [showReport, setShowReport] = useState(false);
+    const [formData, setFormData] = useState({
+      firNumber: "",
+      date: "", 
+      time: "",
+      policeStation: "",
+      district: "",
+      state: "",
+      officerName: "",
+      receivedMode: "",
+      offenseType: "",
+      offenseDateTime: "",
+      occurrencePlace: "",
+      incidentDescription: "",
+      complainantName: "",
+      guardianName: "",
+      age: "",
+      gender: "",
+      contact: "",
+      email: "",
+      address: ""
+    });
+  
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
@@ -21,21 +44,15 @@ const FIR = ({ showReport, setShowReport,formData, setFormData }) => {
   useEffect(() => {
     if (output) {
       console.log("Generated Output:", output);
-      const updatedData = { ...localData, firDraft: output };
-      setLocalData(updatedData);
+      const updatedData = { ...formData, firDraft: output };
       setFormData(updatedData);
     }
   }, [output]);
 
   useEffect(() => {
-    console.log("Local Data:",formData);
     setInput(formData.incidentDescription);
-    setLocalData(formData)
   }, [formData]); 
 
-  useEffect(() => {
-    console.log("Local Data:",localData);
-  }, [localData]);
 
   const navigate = useNavigate();
   const handleChange = (e) => {

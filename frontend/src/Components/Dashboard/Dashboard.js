@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Routes, Route, useLocation } from "react-router-dom";
 import {
   FaGavel,
@@ -21,28 +21,6 @@ import AllReport from "./Compo/AllReport";
 
 const Dashboard = () => {
   const location = useLocation();
-  const [showReport, setShowReport] = useState(false);
-  const [formData, setFormData] = useState({
-    firNumber: "",
-    date: "", 
-    time: "",
-    policeStation: "",
-    district: "",
-    state: "",
-    officerName: "",
-    receivedMode: "",
-    offenseType: "",
-    offenseDateTime: "",
-    occurrencePlace: "",
-    incidentDescription: "",
-    complainantName: "",
-    guardianName: "",
-    age: "",
-    gender: "",
-    contact: "",
-    email: "",
-    address: ""
-  });
 
   const items = [
     { icon: <FaBell />, label: "FIR", path: "fir" },
@@ -72,18 +50,13 @@ const Dashboard = () => {
 
       <div className="dashboard-content1">
         <Routes>
-          <Route
-  path="fir"
-  element={<FIR showReport={showReport} setShowReport={setShowReport} formData={formData} setFormData={setFormData} />}
-/>       
+          <Route path="fir" element={<FIR />} />
           <Route path="section" element={<AllReport />} />
           <Route path="contact" element={<AllReport />} />
-          <Route path="report" 
-          element={<Report formData={formData} setFormData={setFormData} />}
-          />
+          <Route path="report" element={<Report />} />
           <Route path="AllReport" element={<AllReport />} />
           <Route path="station" element={<AllReport />} />
-          <Route path="cyber" element={<AllReport/>} />
+          <Route path="cyber" element={<AllReport />} />
         </Routes>
       </div>
     </div>

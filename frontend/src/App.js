@@ -10,7 +10,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // login state
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return !!localStorage.getItem("token");
+  });
 
   return (
     <div className="container">

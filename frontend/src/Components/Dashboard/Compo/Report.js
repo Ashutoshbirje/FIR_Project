@@ -129,7 +129,7 @@ const FIRReport = () => {
       if (response.ok) {
         alert("FIR Submitted Successfully!");
         console.log("Saved FIR:", result);
-        navigate("/fir"); // or wherever you want to redirect
+        navigate("/"); // or wherever you want to redirect
       } else {
         alert(`Submission failed: ${result.error}`);
       }

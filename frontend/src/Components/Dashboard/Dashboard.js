@@ -17,7 +17,7 @@ import FIR from "./Compo/FIR";
 import Report from "./Compo/Report";
 import AllReport from "./Compo/AllReport";
 // import PoliceStation from "./PoliceStation";
-// import CyberCrime from "./CyberCrime";
+import CyberCrime from "./Compo/CyberCrime";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -56,7 +56,7 @@ const Dashboard = () => {
           <Route path="report" element={<Report />} />
           <Route path="AllReport" element={<AllReport />} />
           <Route path="station" element={<AllReport />} />
-          <Route path="cyber" element={<AllReport />} />
+          <Route path="cyber" element={<CyberCrime />} />
         </Routes>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef} from 'react';
 import Navbar from "./Components/Navbar/Navbar";
 import Instruction from "./Components/Instruction/Instruction"; 
 import HomePage from "./Components/HomePage/HomePage";
@@ -10,9 +10,18 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
 
 function App() {
+  const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return !!localStorage.getItem("token");
   });
+
+  const scrollToSection = (sectionRef) => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="container">
@@ -20,13 +29,13 @@ function App() {
         isLoggedIn ? (
           <>
             <Instruction />
+            <div ref={section2Ref}></div>
             <div className="sticky-navbar">
-              {/* Pass login state and setter to Navbar */}
-              <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} scrollToSection={scrollToSection} refs={{ section1Ref,section2Ref }} />
             </div>
             <HomePage />
             <Advertisement />
-            <Dashboard />
+            <div ref={section1Ref}><Dashboard/></div>
             <Footer />
           </>
         ) : (

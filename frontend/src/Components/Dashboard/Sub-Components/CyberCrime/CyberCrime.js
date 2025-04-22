@@ -1,9 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import './CyberCrime.css';
 
 const CyberCrime = () => {
+  const navigate = useNavigate();
   return (
-    <div className="container2">
+    <div className="container3">
+      <div className="Close">
+        <button
+          className="close-btn"
+          onClick={() => navigate("/")}
+          title="Go back to dashboard"
+        >
+          ❌
+        </button>
+      </div>
+     <div className="container2">
       <h1>Cyber Crime Awareness</h1>
       
       <section>
@@ -56,6 +68,7 @@ const CyberCrime = () => {
           cyber crime portal for assistance.
         </p>
       </section>
+     </div>
     </div>
   );
 };

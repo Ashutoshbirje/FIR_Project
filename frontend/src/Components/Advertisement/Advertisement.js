@@ -1,14 +1,13 @@
 import React from "react";
 import "./Advertisement.css";
+import logo1 from "../../Images/Logo2.png"; // Adjust path as needed
 
 const Advertisement = () => {
   return (
     <div className="advertisement-container">
-      <div className="scrolling-text">
-        <span>
-          🚀 Limited Time Offer! | 🎉 50% OFF on all products! | 💡 Stay tuned for
-          exciting updates! | 🔥 Best deals of the season!
-        </span>
+      <div className="scrolling-images">
+        <img src={logo1} alt="Logo 1" className="ad-image" />
+        <img src={logo1} alt="Logo 1" className="ad-image" />
       </div>
     </div>
   );

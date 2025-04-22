@@ -4,7 +4,7 @@ const AllReports = () => {
 
   return (
     <div className="container1">
-       Hi
+       Contact
     </div>
   );
 };

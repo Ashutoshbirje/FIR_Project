@@ -103,7 +103,7 @@ const FIR = () => {
 
       {showReport ? (
         <div className="Report">
-          <div className="fir-report">
+          <div className="fir-report1">
             <h3 className="fir-report-title">First Information Report</h3>
             <p><strong>FIR Number:</strong> {formData.firNumber}</p>
             <p><strong>Date:</strong> {formData.date}</p>

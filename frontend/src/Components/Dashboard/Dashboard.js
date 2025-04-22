@@ -11,22 +11,21 @@ import {
 import "./Dashboard.css";
 
 // Importing the external components
-import FIR from "./Compo/FIR";
-// import Section from "./Section";
-// import Contact from "./Contact";
-import Report from "./Compo/Report";
-import AllReport from "./Compo/AllReport";
-// import PoliceStation from "./PoliceStation";
-import CyberCrime from "./Compo/CyberCrime";
-
+import FIR from "./Sub-Components/FIR/FIR";
+import Section from "./Sub-Components/Section/Section";
+import Contact from "./Sub-Components/Contact/Contact";
+import Report from "./Sub-Components/Report/Report";
+import AllReport from "./Sub-Components/AllReports/AllReport";
+import CyberCrime from "./Sub-Components/CyberCrime/CyberCrime";
+import PoliceStation from "./Sub-Components/PoliceStation/PoliceStation"
 const Dashboard = () => {
   const location = useLocation();
 
   const items = [
     { icon: <FaBell />, label: "FIR", path: "fir" },
+    { icon: <FaFileAlt />, label: "Report", path: "AllReport" },
     { icon: <FaGavel />, label: "Section", path: "section" },
     { icon: <FaUsers />, label: "Contact", path: "contact" },
-    { icon: <FaFileAlt />, label: "Report", path: "AllReport" },
     { icon: <FaMapMarkerAlt />, label: "Police Station", path: "station" },
     { icon: <FaUserSecret />, label: "Cyber Crime", path: "cyber" },
   ];
@@ -51,11 +50,11 @@ const Dashboard = () => {
       <div className="dashboard-content1">
         <Routes>
           <Route path="fir" element={<FIR />} />
-          <Route path="section" element={<AllReport />} />
-          <Route path="contact" element={<AllReport />} />
+          <Route path="section" element={<Section />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="report" element={<Report />} />
           <Route path="AllReport" element={<AllReport />} />
-          <Route path="station" element={<AllReport />} />
+          <Route path="station" element={<PoliceStation />} />
           <Route path="cyber" element={<CyberCrime />} />
         </Routes>
       </div>

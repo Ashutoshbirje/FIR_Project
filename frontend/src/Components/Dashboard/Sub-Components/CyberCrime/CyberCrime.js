@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { FaTimesCircle } from "react-icons/fa";
 import './CyberCrime.css';
 
 const CyberCrime = () => {
@@ -12,7 +13,7 @@ const CyberCrime = () => {
           onClick={() => navigate("/")}
           title="Go back to dashboard"
         >
-          ❌
+           <FaTimesCircle size={24} color="#180056" />
         </button>
       </div>
      <div className="container2">

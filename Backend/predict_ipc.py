@@ -17,4 +17,4 @@ print(predicted_output)
 
 
 # Verification
-# python predict_ipc.py "A man entered a house and stole money at night."
+# python predict_ipc.py "Keyword"

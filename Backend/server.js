@@ -7,7 +7,8 @@ dotenv.config();
 
 const authRoutes = require("./routes/authRoutes");
 const firRoutes = require("./routes/firRoutes");
-const AIRoutes = require("./routes/aiRoutes");
+const reportRoutes  = require("./routes/reportRoutes");
+const Predict = require("./routes/predictiRoutes");
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(express.json());
 
 app.use("/api", authRoutes);
 app.use("/api", firRoutes);
-app.use("/api", AIRoutes);
+app.use("/api", reportRoutes);
+app.use("/api", Predict);
 
 // Connect to MongoDB and start server
 mongoose

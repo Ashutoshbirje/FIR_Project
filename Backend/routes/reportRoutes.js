@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-// Google Gemini API (text generation)
 const BASE_PROMPT = `
 You are a legal assistant trained in Indian law. Analyze the following crime scenario and identify the applicable Indian Penal Code (IPC) sections.
 

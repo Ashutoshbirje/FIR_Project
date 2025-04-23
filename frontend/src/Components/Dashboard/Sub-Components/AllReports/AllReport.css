@@ -1,49 +1,72 @@
- .container4 {
-    padding: 20px;
-    min-width: 900px;
-    background-color: white;
-    border-radius: 5px;
-  } 
-  
-  .container4 h2 {
-    text-align: center;
-    margin:30px 0px;
-  } 
+.container4 {
+  padding: 20px;
+  width: 100%;
+  min-width: 900px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
 
-  .report-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-  }
-  
-  .report-card {
-    background: #f0f0f0;
-    padding: 16px;
-    text-align: center;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .report-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .file-icon {
-    font-size: 32px;
-  }
-  
-  .fir-report {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    background-color: #fafafa;
-  }
-  
-  .fir-report-title {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  
+
+.container4 h2 {
+  text-align: center;
+  margin: 30px 0px;
+  font-size: 24px;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.report-card {
+  background: #f0f0f0;
+  padding: 16px;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.report-card:hover {
+  transform: scale(1.05);
+}
+
+.file-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.fir-report {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+.fir-report-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.Close {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+/* For smaller screens, override min-width to prevent overflow */

@@ -14,7 +14,7 @@ const AllReports = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/AllReport", {
+        const res = await axios.get("http://fir-project-10.onrender.com/api/AllReport", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

@@ -63,8 +63,8 @@
   /* Responsive styling */
 @media (max-width: 768px) {
     .container2 {
-      padding: 20px;
-      margin: 20px;
+      padding: 15px;
+      margin: 10px;
     }
   
     .container2 h1 {
@@ -83,8 +83,8 @@
   
   @media (max-width: 480px) {
     .container2 {
-      padding: 15px;
-      margin: 10px;
+      padding: 8px;
+      margin: 5px;
     }
   
     .container2 h1 {
@@ -99,5 +99,9 @@
     .container2 li {
       font-size: 0.95rem;
     }
+    .container3 {
+      padding: 10px;
+    }
+    
   }
   

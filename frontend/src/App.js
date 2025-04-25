@@ -35,7 +35,7 @@ function App() {
             </div>
             <HomePage />
             <Advertisement />
-            <div ref={section1Ref}><Dashboard/></div>
+            <div className="Dashboard"ref={section1Ref}><Dashboard/></div>
             <Footer />
           </>
         ) : (

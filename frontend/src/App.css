@@ -49,3 +49,33 @@ html, body {
     text-align: center;
   }
 }
+
+.Dashboard {
+  padding: 40px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .Dashboard {
+    padding: 30px 15px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 767px) {
+  .Dashboard {
+    padding: 25px 12px;
+    width: 98%;
+  }
+}
+
+@media (max-width: 479px) {
+  .Dashboard {
+    padding: 20px 10px;
+    width: 100%;
+  }
+}

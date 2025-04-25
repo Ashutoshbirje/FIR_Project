@@ -1,15 +1,13 @@
 .container4 {
   padding: 20px;
-  width: 100%;
-  min-width: 900px;
+  width: 900px;
   margin: 40px auto;
   background-color: white;
   border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
+  overflow-x: hidden; /* prevent horizontal scroll */
 }
-
 
 .container4 h2 {
   text-align: center;
@@ -17,13 +15,51 @@
   font-size: 24px;
 }
 
+/* --------------------- REPORT GRID --------------------- */
 .report-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   margin-top: 20px;
+  grid-template-columns: repeat(5, 1fr); /* Default for large screens */
 }
 
+@media (max-width: 1199px) {
+  .report-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .container4 {
+    width: 900px;
+  }
+}
+
+@media (max-width: 991px) {
+  .report-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container4 {
+    width: 700px;
+  }
+}
+
+@media (max-width: 767px) {
+  .report-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container4 {
+    width: 480px;
+  }
+}
+
+@media (max-width: 479px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+  .container4 {
+    width: 300px;
+  }
+}
+
+/* --------------------- REPORT CARD --------------------- */
 .report-card {
   background: #f0f0f0;
   padding: 16px;
@@ -43,6 +79,7 @@
   margin-bottom: 8px;
 }
 
+/* --------------------- FIR REPORT --------------------- */
 .fir-report {
   margin-top: 30px;
   padding: 20px;
@@ -50,6 +87,22 @@
   border-radius: 12px;
   background-color: #fafafa;
   box-sizing: border-box;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 991px) {
+  .fir-report {
+    width: 90%;
+  }
+}
+
+@media (max-width: 479px) {
+  .fir-report {
+    width: 100%;
+    padding: 16px;
+  }
 }
 
 .fir-report-title {
@@ -69,4 +122,50 @@
   margin-bottom: 10px;
 }
 
-/* For smaller screens, override min-width to prevent overflow */
+.text-center2 {
+  display: flex;
+  justify-content:space-between;
+  gap: 5px;
+  margin: 1.5rem 1rem;
+}
+
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .fir-report,
+  .fir-report * {
+    visibility: visible;
+  }
+
+  .fir-report {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .text-center2 {
+    display: none;
+  }
+}

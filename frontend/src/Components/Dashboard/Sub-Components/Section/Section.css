@@ -1,0 +1,209 @@
+  .container5 {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* ------------------------ HEADER SECTION ------------------------ */
+  .header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1e1e1e;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .header-box-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .ashoka-logo,
+  .flag-img {
+    width: 50px;
+    height: auto;
+  }
+  
+  .header-text {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .header-text h2 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  
+  .header-text p {
+    margin: 2px 0 0;
+    font-size: 0.95rem;
+    color: #d0d0d0;
+  }
+  
+  /* 🟪 Responsive header sizing */
+  @media (max-width: 767px) {
+    .ashoka-logo,
+    .flag-img {
+      width: 40px;
+    }
+  
+    .header-box-left h2 {
+      font-size: 1.2rem;
+    }
+  
+    .header-box-left p {
+      font-size: 0.65rem;
+    }
+  }
+  
+  @media (max-width: 479px) {
+    .ashoka-logo,
+    .flag-img {
+      width: 40px;
+    }
+    .Title {
+      display: none;
+    }
+  }
+  
+  /* ------------------------ GRID SYSTEM ------------------------ */
+  .sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .section-link {
+    color: #a22020;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #fff9f9;
+    transition: background-color 0.2s ease;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  
+  .section-link:hover {
+    background-color: #ffecec;
+  }
+  
+  /* 🟨 Responsive font sizes */
+  @media (max-width: 1199px) {
+    .section-link {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .section-link {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .section-link {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 479px) {
+    .section-link {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* 🟧 Grid column overrides at key breakpoints */
+  @media (min-width: 1200px) {
+    .sections-grid {
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+  
+  @media (max-width: 1199px) and (min-width: 992px) {
+    .sections-grid {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+  
+  @media (max-width: 991px) and (min-width: 768px) {
+    .sections-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) and (min-width: 480px) {
+    .sections-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 479px) {
+    .sections-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+
+  
+
+  
+  /* ------------------------ SECTION DETAILS ------------------------ */
+.section-info {
+  margin: 30px auto 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 100%; /* Default for large screens */
+  max-width: 900px;
+}
+
+.back-btn {
+  background-color: #a22020;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background-color: #881c1c;
+}
+
+/* 🟩 Medium screens (tablets and small laptops) */
+@media (max-width: 991px) {
+  .section-info {
+    width: 80%;
+  }
+}
+
+/* 🟦 Smaller tablets and large phones */
+@media (max-width: 767px) {
+  .section-info {
+    width: 90%;
+  }
+}
+
+/* 🟪 Phones */
+@media (max-width: 479px) {
+  .section-info {
+    width: 95%;
+    padding: 16px;
+  }
+}

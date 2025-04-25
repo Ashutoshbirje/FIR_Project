@@ -116,7 +116,7 @@ const FIRReport = () => {
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token"); // or however you store the JWT
-      const response = await fetch("http://localhost:5000/api/report", {
+      const response = await fetch("https://fir-project-10.onrender.com/api/report", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

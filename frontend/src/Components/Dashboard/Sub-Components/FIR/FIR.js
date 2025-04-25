@@ -34,7 +34,7 @@ const FIR = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://fir-project-10.onrender.com/api/fir-ai ", { input });
+      const response = await axios.post("https://fir-project-10.onrender.com/api/fir-ai ", { input });
       setOutput(response.data.output);
     } catch (error) {
       console.error("Error fetching prediction:", error);

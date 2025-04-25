@@ -11,7 +11,7 @@ const LoginSignup = ({ onLogin }) => {
   const handleLogin = async () => {
     setError(""); // clear old error
     try {
-      const response = await axios.post("http://fir-project-10.onrender.com/api/login", {
+      const response = await axios.post("https://fir-project-10.onrender.com/api/login", {
         username,
         password
       });
@@ -26,7 +26,7 @@ const LoginSignup = ({ onLogin }) => {
   const handleSignup = async () => {
     setError("");
     try {
-      const response = await axios.post("http://fir-project-10.onrender.com/api/signup", {
+      const response = await axios.post("https://fir-project-10.onrender.com/api/signup", {
         username,
         password
       });

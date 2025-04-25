@@ -1,0 +1,122 @@
+.police-station-container {
+    padding: 20px;
+  }
+  
+  .header-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-title {
+    font-size: 2rem;
+    color: #180056;
+  }
+  
+  .header-subtitle {
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  .search-container {
+    position: relative;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #888;
+  }
+  
+  .categories-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .category-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0f0f0;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .category-button.active {
+    background: #180056;
+    color: white;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .service-card {
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: white;
+  }
+  
+  .service-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #180056;
+    margin-bottom: 10px;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  .tag-red {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .map-button {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #180056;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .map-icon {
+    height: 16px;
+    width: 16px;
+  }
+  
+  .no-results {
+    text-align: center;
+    color: #888;
+    margin-top: 20px;
+  }
+  

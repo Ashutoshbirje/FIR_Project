@@ -8,8 +8,10 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, scrollToSection, refs }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    localStorage.removeItem("token"); 
+    setIsLoggedIn(false);            
   };
+  
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

@@ -33,6 +33,7 @@
 @media (max-width: 768px) {
   .advertisement-container {
     height: 100px;
+    margin-bottom: 50px;
   }
 
   .ad-image {

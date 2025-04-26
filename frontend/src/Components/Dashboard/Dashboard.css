@@ -86,6 +86,9 @@
 
 /* Media query for screen width 440px and below */
 @media (max-width: 440px) {
+  .container1{
+    margin: 60px 5px 30px 5px;
+  }
   .dashboard-item {
     width: 240px;
     height: 200px;

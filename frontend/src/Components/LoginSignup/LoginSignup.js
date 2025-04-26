@@ -4,16 +4,18 @@ import './LoginSignup.css';
 import logo from "../../Images/Logo1.jpg";
 
 const LoginSignup = ({ onLogin }) => {
+  const [isLoginMode, setIsLoginMode] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-  const handleLogin = async () => {
+  const handleSubmit = async () => {
     setError("");
+    const endpoint = isLoginMode ? "login" : "signup";
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/login`, {
+      const response = await axios.post(`${BACKEND_URL}/api/${endpoint}`, {
         username,
         password
       });
@@ -21,23 +23,15 @@ const LoginSignup = ({ onLogin }) => {
       localStorage.setItem("token", response.data.token);
       onLogin();
     } catch (error) {
-      setError(error.response?.data?.message || "Login failed");
+      setError(error.response?.data?.message || `${isLoginMode ? "Login" : "Signup"} failed`);
     }
   };
 
-  const handleSignup = async () => {
+  const toggleMode = () => {
+    setIsLoginMode(!isLoginMode);
     setError("");
-    try {
-      const response = await axios.post(`${BACKEND_URL}/api/signup`, {
-        username,
-        password
-      });
-
-      localStorage.setItem("token", response.data.token);
-      onLogin();
-    } catch (error) {
-      setError(error.response?.data?.message || "Signup failed");
-    }
+    setUsername("");
+    setPassword("");
   };
 
   return (
@@ -48,7 +42,7 @@ const LoginSignup = ({ onLogin }) => {
         <h3>सद्रक्षणाय खलनिग्रहणाय</h3>
       </div>
       <div className="login-right">
-        <p className="heading">Please Login to your Account</p>
+        <p className="heading">{isLoginMode ? "Please Login to your Account" : "Create a New Account"}</p>
         <input
           type="text"
           placeholder="User id"
@@ -62,8 +56,22 @@ const LoginSignup = ({ onLogin }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <p className="error-msg">{error}</p>}
-        <button className="login-btn" onClick={handleLogin}>Login</button>
-        <button className="signup-btn" onClick={handleSignup}>Sign Up</button>
+        <button className="login-btn" onClick={handleSubmit}>
+          {isLoginMode ? "Login" : "Sign Up"}
+        </button>
+        <p className="toggle-msg">
+          {isLoginMode ? (
+            <>
+              Don’t have an account?{" "}
+              <span className="toggle-link" onClick={toggleMode}>Sign up here</span>
+            </>
+          ) : (
+            <>
+              Already have an account?{" "}
+              <span className="toggle-link" onClick={toggleMode}>Login here</span>
+            </>
+          )}
+        </p>
       </div>
     </div>
   );

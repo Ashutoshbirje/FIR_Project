@@ -10,11 +10,12 @@ const AllReports = () => {
   const [selectedReport, setSelectedReport] = useState(null);
   const printRef = useRef();
   const navigate = useNavigate();
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("https://fir-project-10.onrender.com/api/AllReport", {
+        const res = await axios.get(`${BACKEND_URL}/api/AllReport`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

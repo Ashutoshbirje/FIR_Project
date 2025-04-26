@@ -31,10 +31,10 @@ const FIR = () => {
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("https://fir-project-10.onrender.com/api/fir-ai ", { input });
+      const response = await axios.post(`${BACKEND_URL}/api/fir-ai`, { input });
       setOutput(response.data.output);
     } catch (error) {
       console.error("Error fetching prediction:", error);

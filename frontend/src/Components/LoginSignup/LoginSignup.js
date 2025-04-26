@@ -6,18 +6,20 @@ import logo from "../../Images/Logo1.jpg";
 const LoginSignup = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // <- error message
+  const [error, setError] = useState("");
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const handleLogin = async () => {
-    setError(""); // clear old error
+    setError("");
     try {
-      const response = await axios.post("https://fir-project-10.onrender.com/api/login", {
+      const response = await axios.post(`${BACKEND_URL}/api/login`, {
         username,
         password
       });
 
       localStorage.setItem("token", response.data.token);
-      onLogin(); // Trigger parent login state
+      onLogin();
     } catch (error) {
       setError(error.response?.data?.message || "Login failed");
     }
@@ -26,7 +28,7 @@ const LoginSignup = ({ onLogin }) => {
   const handleSignup = async () => {
     setError("");
     try {
-      const response = await axios.post("https://fir-project-10.onrender.com/api/signup", {
+      const response = await axios.post(`${BACKEND_URL}/api/signup`, {
         username,
         password
       });
@@ -59,10 +61,7 @@ const LoginSignup = ({ onLogin }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        {/* ✅ Display error message here */}
         {error && <p className="error-msg">{error}</p>}
-
         <button className="login-btn" onClick={handleLogin}>Login</button>
         <button className="signup-btn" onClick={handleSignup}>Sign Up</button>
       </div>

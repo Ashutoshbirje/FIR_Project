@@ -7,6 +7,7 @@ const FIRReport = () => {
   const location = useLocation();
   const [data, setFormData] = useState({});
   const navigate = useNavigate();
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     if (location.state && location.state.localData) {
@@ -116,7 +117,7 @@ const FIRReport = () => {
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token"); // or however you store the JWT
-      const response = await fetch("https://fir-project-10.onrender.com/api/report", {
+      const response = await fetch(`${BACKEND_URL}/api/report`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

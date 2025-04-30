@@ -152,20 +152,19 @@ const AllReports = () => {
       </div>
       <h2>FIR-REPORT</h2>
       <div className="report-grid">
-        {reports.map((report, index) => (
-          <div
-            key={report._id}
-            className="report-card"
-            onClick={() => setSelectedReport(report)}
-          >
-            <div className="file-icon">
-              <FaFileAlt size={50} color="#007bff" />
-            </div>
-            <p>FIR-{index + 1}</p>
-          </div>
-        ))}
+  {reports.map((report, index) => (
+    <div
+      key={report._id}
+      className="report-card"
+      onClick={() => setSelectedReport(report)}
+    >
+      <div className="file-icon">
+        <FaFileAlt size={50} color="#007bff" />
       </div>
-
+      <p>FIR-{reports.length - index}</p>
+    </div>
+  ))}
+      </div>
       {selectedReport && (
         <div className="fir-report" ref={printRef}>
           <div className="Close">

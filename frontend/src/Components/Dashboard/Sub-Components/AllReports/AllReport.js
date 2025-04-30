@@ -10,9 +10,9 @@ const AllReports = () => {
   const [selectedReport, setSelectedReport] = useState(null);
   const printRef = useRef();
   const navigate = useNavigate();
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const fetchReports = async () => {
       try {
         const res = await axios.get(`${BACKEND_URL}/api/AllReport`, {
@@ -29,8 +29,7 @@ const AllReports = () => {
     fetchReports();
   }, []);
 
-  const handlePrint = () => {
-    const doc = new jsPDF();
+  const buildFIRPdf = (doc, selectedReport) => {
     const lineHeight = 8;
     let y = 20;
   
@@ -48,6 +47,7 @@ const AllReports = () => {
     };
   
     const addTitle = (text) => {
+      y += 3;
       doc.setFontSize(14);
       doc.setFont("helvetica", "bold");
       doc.text(text, 20, y);
@@ -78,31 +78,35 @@ const AllReports = () => {
       }
     };
   
+    const addTwoColumnText = (label1, value1, label2, value2, x1 = 20, x2 = 125) => {
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.text(`${label1}: ${value1 || ''}`, x1, y);
+      doc.text(`${label2}: ${value2 || ''}`, x2, y);
+      y += lineHeight;
+    };
+  
+    // Build the PDF content using above utilities
     addMainTitle("First Information Report");
     doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
     doc.text(`FIR Number: ${selectedReport.firNumber}`, 20, y);
-    doc.text(`Date: ${selectedReport.date} | Time: ${selectedReport.time}`, 130, y);
+    doc.text(`Date: ${selectedReport.date} | Time: ${selectedReport.time}`, 125, y);
     y += lineHeight;
   
     addTitle("Police Station Details");
-    addText("Police Station:", selectedReport.policeStation);
-    addText("District:", selectedReport.district);
-    addText("State:", selectedReport.state);
-    addText("Officer Name:", selectedReport.officerName);
+    addTwoColumnText("Police Station", selectedReport.policeStation, "District", selectedReport.district);
+    addTwoColumnText("State", selectedReport.state, "Officer Name", selectedReport.officerName);
   
     addTitle("Complaint Details");
-    addText("Mode of Receiving Info:", selectedReport.receivedMode);
-    addText("Offense Type:", selectedReport.offenseType);
-    addText("Offense Date & Time:", selectedReport.offenseDateTime);
-    addText("Place of Occurrence:", selectedReport.occurrencePlace);
+    addTwoColumnText("Mode of Receiving Info", selectedReport.receivedMode, "Offense Type", selectedReport.offenseType);
+    addTwoColumnText("Offense Date & Time", selectedReport.offenseDateTime, "Place of Occurrence", selectedReport.occurrencePlace);
     addMultilineText("Incident Description:", selectedReport.incidentDescription);
   
     addTitle("Complainant Details");
-    addText("Name:", selectedReport.complainantName);
-    addText("Father/Husband Name:", selectedReport.guardianName);
-    doc.text(`Age: ${selectedReport.age || ''}  Gender: ${selectedReport.gender || ''}  Contact: ${selectedReport.contact || ''}`, 20, y);
-    y += lineHeight;
-    addText("Email:", selectedReport.email);
+    addTwoColumnText("Name:", selectedReport.complainantName, "Father/Husband Name:", selectedReport.guardianName);
+    addTwoColumnText("Age:", selectedReport.age, "Gender:", selectedReport.gender);
+    addTwoColumnText("Contact:", selectedReport.contact, "Email:", selectedReport.email);
     addMultilineText("Address:", selectedReport.address);
   
     addTitle("Legal Sections Applied");
@@ -113,8 +117,11 @@ const AllReports = () => {
     addText("Rank and Badge No.:", "____________________");
     addText("Date of submission to Magistrate:", "____________________");
     addText("Seal of the Police Station:", "____________________");
+  };
   
-    // 👉 Open PDF in new tab and auto-trigger browser print
+  const handlePrint = () => {
+    const doc = new jsPDF();
+    buildFIRPdf(doc, selectedReport);
     const pdfBlobUrl = doc.output('bloburl');
     const printWindow = window.open(pdfBlobUrl, '_blank');
     if (printWindow) {
@@ -123,97 +130,15 @@ const AllReports = () => {
         printWindow.print();
       };
     }
-    
   };
   
   const generatePDF = () => {
     const doc = new jsPDF();
-    const lineHeight = 8;
-    let y = 20;
-
-    const addMainTitle = (text) => {
-      doc.setFontSize(16);
-      doc.setFont("helvetica", "bold");
-      const pageWidth = doc.internal.pageSize.getWidth();
-      const textWidth = doc.getTextWidth(text);
-      const x = (pageWidth - textWidth) / 2;
-      doc.text(text, x, y);
-      y += 5;
-      doc.setLineWidth(0.5);
-      doc.line(20, y, pageWidth - 20, y);
-      y += lineHeight;
-    };
-
-    const addTitle = (text) => {
-      doc.setFontSize(14);
-      doc.setFont("helvetica", "bold");
-      doc.text(text, 20, y);
-      y += 3;
-      doc.setLineWidth(0.3);
-      doc.line(20, y, 190, y);
-      y += lineHeight;
-    };
-
-    const addText = (label, value) => {
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "normal");
-      doc.text(`${label} ${value || ''}`, 20, y);
-      y += lineHeight;
-    };
-
-    const addMultilineText = (label, value, maxWidth = 170) => {
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "normal");
-      const labelWidth = doc.getTextWidth(label + " ");
-      const lines = doc.splitTextToSize(value || '', maxWidth - labelWidth);
-      const firstLine = `${label} ${lines[0]}`;
-      doc.text(firstLine, 20, y, { align: 'justify', maxWidth });
-      y += lineHeight;
-      for (let i = 1; i < lines.length; i++) {
-        doc.text(lines[i], 20, y, { align: 'justify', maxWidth });
-        y += lineHeight;
-      }
-    };
-
-    addMainTitle("First Information Report");
-    doc.setFontSize(12);
-    doc.text(`FIR Number: ${selectedReport.firNumber}`, 20, y);
-    doc.text(`Date: ${selectedReport.date} | Time: ${selectedReport.time}`, 130, y);
-    y += lineHeight;
-
-    addTitle("Police Station Details");
-    addText("Police Station:", selectedReport.policeStation);
-    addText("District:", selectedReport.district);
-    addText("State:", selectedReport.state);
-    addText("Officer Name:", selectedReport.officerName);
-
-    addTitle("Complaint Details");
-    addText("Mode of Receiving Info:", selectedReport.receivedMode);
-    addText("Offense Type:", selectedReport.offenseType);
-    addText("Offense Date & Time:", selectedReport.offenseDateTime);
-    addText("Place of Occurrence:", selectedReport.occurrencePlace);
-    addMultilineText("Incident Description:", selectedReport.incidentDescription);
-
-    addTitle("Complainant Details");
-    addText("Name:", selectedReport.complainantName);
-    addText("Father/Husband Name:", selectedReport.guardianName);
-    doc.text(`Age: ${selectedReport.age || ''}  Gender: ${selectedReport.gender || ''}  Contact: ${selectedReport.contact || ''}`, 20, y);
-    y += lineHeight;
-    addText("Email:", selectedReport.email);
-    addMultilineText("Address:", selectedReport.address);
-
-    addTitle("Legal Sections Applied");
-    addMultilineText("", selectedReport.firDraft || "None specified");
-
-    addTitle("Signature and Submission");
-    addText("Name and Signature of Investigating Officer:", "____________________");
-    addText("Rank and Badge No.:", "____________________");
-    addText("Date of submission to Magistrate:", "____________________");
-    addText("Seal of the Police Station:", "____________________");
-
+    buildFIRPdf(doc, selectedReport);
     doc.save("FIR_Report.pdf");
   };
 
+  
   return (
     <div className="container4">
       <div className="Close">

@@ -40,6 +40,7 @@ const FIRReport = () => {
     };
   
     const addTitle = (text) => {
+      y += 3;
       doc.setFontSize(14);
       doc.setFont("helvetica", "bold");
       doc.text(text, 20, y);
@@ -55,64 +56,75 @@ const FIRReport = () => {
       doc.text(`${label} ${value || ''}`, 20, y);
       y += lineHeight;
     };
+  
     const addMultilineText = (label, value, maxWidth = 170) => {
       doc.setFontSize(12);
       doc.setFont("helvetica", "normal");
-    
+  
       const labelWidth = doc.getTextWidth(label + " ");
       const lines = doc.splitTextToSize(value || '', maxWidth - labelWidth);
-    
-      // Combine label with the first line of the value
+  
       const firstLine = `${label} ${lines[0]}`;
       doc.text(firstLine, 20, y, { align: 'justify', maxWidth });
-    
       y += lineHeight;
-    
-      // Print remaining lines (justified)
+  
       for (let i = 1; i < lines.length; i++) {
         doc.text(lines[i], 20, y, { align: 'justify', maxWidth });
         y += lineHeight;
       }
     };
+  
+    const addTwoColumnText = (label1, value1, label2, value2, x1 = 20, x2 = 125) => {
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.text(`${label1}: ${value1 || ''}`, x1, y);
+      doc.text(`${label2}: ${value2 || ''}`, x2, y);
+      y += lineHeight;
+    };
+  
+    // Main title
     addMainTitle("First Information Report");
   
+    // FIR number and date/time
     doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
     doc.text(`FIR Number: ${data.firNumber}`, 20, y);
-    doc.text(`Date: ${data.date} | Time: ${data.time}`, 130, y);
+    doc.text(`Date: ${data.date} | Time: ${data.time}`, 125, y);
     y += lineHeight;
   
+    // Police Station Details
     addTitle("Police Station Details");
-    addText("Police Station:", data.policeStation);
-    addText("District:", data.district);
-    addText("State:", data.state);
-    addText("Officer Name:", data.officerName);
+    addTwoColumnText("Police Station", data.policeStation, "District", data.district);
+    addTwoColumnText("State", data.state, "Officer Name", data.officerName);
   
+    // Complaint Details
     addTitle("Complaint Details");
-    addText("Mode of Receiving Info:", data.receivedMode);
-    addText("Offense Type:", data.offenseType);
-    addText("Offense Date & Time:", data.offenseDateTime);
-    addText("Place of Occurrence:", data.occurrencePlace);
+    addTwoColumnText("Mode of Receiving Info", data.receivedMode, "Offense Type", data.offenseType);
+    addTwoColumnText("Offense Date & Time", data.offenseDateTime, "Place of Occurrence", data.occurrencePlace);
     addMultilineText("Incident Description:", data.incidentDescription);
   
+    // Complainant Details
     addTitle("Complainant Details");
-    addText("Name:", data.complainantName);
-    addText("Father/Husband Name:", data.guardianName);
-    doc.text(`Age: ${data.age || ''}  Gender: ${data.gender || ''}  Contact: ${data.contact || ''}`, 20, y);
-    y += lineHeight;
-    addText("Email:", data.email);
+    addTwoColumnText("Name:", data.complainantName, "Father/Husband Name:", data.guardianName);
+    addTwoColumnText("Age:", data.age, "Gender:", data.gender);
+    addTwoColumnText("Contact:", data.contact, "Email:", data.email);
     addMultilineText("Address:", data.address);
-  
+    // Legal Sections
     addTitle("Legal Sections Applied");
     addMultilineText("", data.firDraft || "None specified");
   
+    // Signature section
     addTitle("Signature and Submission");
     addText("Name and Signature of Investigating Officer:", "____________________");
     addText("Rank and Badge No.:", "____________________");
     addText("Date of submission to Magistrate:", "____________________");
     addText("Seal of the Police Station:", "____________________");
   
+    // Save the PDF
     doc.save("FIR_Report.pdf");
   };
+  
+  
   
   const handleSubmit = async () => {
     try {

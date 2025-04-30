@@ -13,7 +13,19 @@ const LoginSignup = ({ onLogin }) => {
 
   const handleSubmit = async () => {
     setError("");
+
+    if (!username || !password) {
+      setError("Please fill in both username and password.");
+      return;
+    }
+
+    if (!isLoginMode && password.length < 8) {
+      setError("Please enter a password with at least 8 characters.");
+      return;
+    }
+
     const endpoint = isLoginMode ? "login" : "signup";
+
     try {
       const response = await axios.post(`${BACKEND_URL}/api/${endpoint}`, {
         username,

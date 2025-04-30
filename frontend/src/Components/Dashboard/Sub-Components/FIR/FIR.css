@@ -101,7 +101,7 @@
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 800px;
+  min-width: 800px;
   margin: 2rem auto;
   font-family: 'Segoe UI', sans-serif;
   color: #333;
@@ -145,7 +145,19 @@
 
 
 /* Responsive Styling */
+@media screen and (max-width: 1200px) {
+
+  .fir-report1{
+    min-width: 700px;
+  }
+
+}
+
 @media screen and (max-width: 768px) {
+
+  .fir-report1{
+    min-width: 500px;
+  }
 
   .input-group {
     flex: 1 1 100%;
@@ -193,4 +205,51 @@
     width: 290px;
   }
   
+}
+
+@media screen and (max-width: 500px) {
+
+  .fir-report1{
+    min-width: 400px;
+  }
+
+}
+
+@media screen and (max-width: 420px) {
+
+  .fir-report1{
+    min-width: 300px;
+  }
+
+}
+
+.voice-input-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  margin-top: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.voice-input-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.03);
+}
+
+.voice-input-btn:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.listening {
+  background-color: #e53935;
+}
+.listening:hover {
+  background-color: #d32f2f;
 }

@@ -1,7 +1,7 @@
 # ⚖️ SMART FIR Drafting Assistant – Automation Tool ⚖️
 
 ## 📚 Project Domain
-**Domain**: Law Enforcement, Artificial Intelligence (AI), Natural Language Processing (NLP), LegalTech
+**Domain**: Law Enforcement
 **Tech Stack**: MERN (MongoDB, Express.js, React.js, Node.js)
 
 ## 🧩 Problem Statement

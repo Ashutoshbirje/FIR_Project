@@ -33,7 +33,6 @@ const FIR = () => {
 
   const navigate = useNavigate();
 
-  // Handle form submission to send the FIR data to the backend
   const handleSubmit = async () => {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     try {
@@ -45,7 +44,6 @@ const FIR = () => {
     }
   };
 
-  // Fetch existing FIRs and set the FIR number
   useEffect(() => {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const fetchFIRs = async () => {
@@ -55,7 +53,7 @@ const FIR = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        const firs = response.data; // Assuming response is an array of FIRs
+        const firs = response.data;
         const nextFIRNumber = firs.length + 1;
         setFormData((prev) => ({
           ...prev,
@@ -68,12 +66,10 @@ const FIR = () => {
     fetchFIRs();
   }, []);
 
-  // Set the current date and time
   useEffect(() => {
     const now = new Date();
-    const currentDate = now.toISOString().split("T")[0]; // Format: YYYY-MM-DD
-    const currentTime = now.toTimeString().split(" ")[0].slice(0, 5); // Format: HH:MM
-
+    const currentDate = now.toISOString().split("T")[0];
+    const currentTime = now.toTimeString().split(" ")[0].slice(0, 5);
     setFormData((prev) => ({
       ...prev,
       date: currentDate,
@@ -81,20 +77,20 @@ const FIR = () => {
     }));
   }, []);
 
-  // Update form data when output is generated
+  // ✅ FIXED: use previous state updater to avoid direct reference
   useEffect(() => {
     if (output) {
       console.log("Generated Output:", output);
-      const updatedData = { ...formData, firDraft: output };
-      setFormData(updatedData);
+      setFormData((prev) => ({
+        ...prev,
+        firDraft: output,
+      }));
     }
   }, [output]);
 
-  // Update input based on the incident description
-useEffect(() => {
-  setInput(formData.incidentDescription);
-}, [formData.incidentDescription]);
-
+  useEffect(() => {
+    setInput(formData.incidentDescription);
+  }, [formData.incidentDescription]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -114,17 +110,15 @@ useEffect(() => {
   };
 
   const [showButton, setShowButton] = useState(false);
-  // Voice Recognition State
   const [isListening, setIsListening] = useState(false);
-  const recognitionRef = useRef(null); // Ref to store the recognition instance
-  // Start voice recognition
+  const recognitionRef = useRef(null);
+
   const startListening = () => {
     if (window.SpeechRecognition || window.webkitSpeechRecognition) {
-      const recognition = new (window.SpeechRecognition ||
-        window.webkitSpeechRecognition)();
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
       recognition.lang = "en-US";
       recognition.interimResults = true;
-      recognition.continuous = true; // allow continuous recognition
+      recognition.continuous = true;
 
       recognition.onstart = () => {
         setIsListening(true);
@@ -147,7 +141,7 @@ useEffect(() => {
 
       recognition.onend = () => {
         if (isListening) {
-          recognition.start(); // auto-restart if still listening
+          recognition.start();
         }
       };
 
@@ -160,22 +154,22 @@ useEffect(() => {
 
   const stopListening = () => {
     if (recognitionRef.current) {
-      recognitionRef.current.stop(); // This triggers onend, but isListening is false now
+      recognitionRef.current.stop();
       setIsListening(false);
     }
   };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowButton(true);
-    }, 30000); // 30 seconds
-
-    return () => clearTimeout(timer); // cleanup
+    }, 30000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleNext1 = () => {
     navigate("/report", {
       state: {
-        localData: formData, // formData should be the full form object
+        localData: formData,
       },
     });
   };

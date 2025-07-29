@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Navbar from "./Components/Navbar/Navbar";
-import Instruction from "./Components/Instruction/Instruction"; 
+import Navbar from "./Components/Navbar/Navbar"; 
 import HomePage from "./Components/HomePage/HomePage";
 import Advertisement from "./Components/Advertisement/Advertisement";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -37,7 +36,6 @@ function App() {
     <div className="container">
       {isLoggedIn ? (
         <>
-          <Instruction />
           <div ref={section2Ref}></div>
 
           <div className="sticky-navbar">

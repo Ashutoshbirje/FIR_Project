@@ -91,9 +91,10 @@ const FIR = () => {
   }, [output]);
 
   // Update input based on the incident description
-  useEffect(() => {
-    setInput(formData.incidentDescription);
-  }, [formData]);
+useEffect(() => {
+  setInput(formData.incidentDescription);
+}, [formData.incidentDescription]);
+
 
   const handleChange = (e) => {
     setFormData((prev) => ({

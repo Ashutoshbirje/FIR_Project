@@ -1,4 +1,4 @@
-# ⚖️ FIR Drafting Assistant – Smart FIR Automation Tool ⚖️
+# ⚖️ SMART FIR Drafting Assistant – Automation Tool ⚖️
 
 ## 📚 Project Domain
 **Domain**: Law Enforcement, Artificial Intelligence (AI), Natural Language Processing (NLP), LegalTech
